@@ -18,9 +18,12 @@ CREATE TABLE 'pelicula' (
     PRIMARY KEY ('id' AUTOINCREMENT)
 )STRICT;
 
-CREATE TABLE 'listaDePelicula' (
+CREATE TABLE 'listaDePeliculaFavorita' (
     'id' INTEGER NOT NULL UNIQUE,
-    'listaDePelucla' 
+    'usuario' INTEGER,
+    'peliculaFavorita' INTEGER,
+    FOREIGN KEY ('usuario') REFERENCES 'personas' ('id'),
+    FOREIGN KEY ('pelicula') REFERENCES 'pelicula' ('id')    
 )STRICT;
 
 INSERT INTO personas (id, nombre, peliculaFavorita) VALUES(1, 'Rico', 'Iluminados por el fuego');
